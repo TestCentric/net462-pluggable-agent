@@ -62,7 +62,7 @@ namespace TestCentric.Engine.Services
             if (workDirectory != string.Empty)
                 sb.Append($" --work=").EscapeProcessArgument(workDirectory);
 
-            var agentName = runAsX86 ? "net20-pluggable-agent-x86.exe" : "net20-pluggable-agent.exe";
+            var agentName = runAsX86 ? "net462-pluggable-agent-x86.exe" : "net462-pluggable-agent.exe";
             var agentDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "agent");
             var agentPath = Path.Combine(agentDir, agentName);
             var agentArgs = sb.ToString();
