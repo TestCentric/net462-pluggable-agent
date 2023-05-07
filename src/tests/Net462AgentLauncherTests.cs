@@ -12,13 +12,13 @@ using NUnit.Engine;
 
 namespace TestCentric.Engine.Services
 {
-    public class Net20AgentLauncherTests
+    public class Net462AgentLauncherTests
     {
         private static readonly Guid AGENTID = Guid.NewGuid();
         private const string AGENT_URL = "tcp://127.0.0.1:1234/TestAgency";
         private static readonly string REQUIRED_ARGS = $"{AGENT_URL} --pid={Process.GetCurrentProcess().Id}";
-        private const string AGENT_NAME = "net20-pluggable-agent.exe";
-        private const string AGENT_NAME_X86 = "net20-pluggable-agent-x86.exe";
+        private const string AGENT_NAME = "net462-pluggable-agent.exe";
+        private const string AGENT_NAME_X86 = "net462-pluggable-agent-x86.exe";
         private static string AGENT_DIR = Path.Combine(TestContext.CurrentContext.TestDirectory, "agent");
 
         // Constants used for settings
