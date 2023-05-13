@@ -19,7 +19,7 @@
     <mailingListUrl>https://groups.google.com/forum/#!forum/nunit-discuss</mailingListUrl>
     <bugTrackerUrl>https://github.com/Testcentric/net462-pluggable-agent/issues</bugTrackerUrl>
     <tags>net462-pluggable-agent testcentric nunit extension pluggable agent net462</tags>
-    <summary>TestCentric Engine extension for running tests under .NET 4.6.1</summary>
+    <summary>TestCentric Engine extension for running tests under .NET 4.6.2</summary>
     <description>This extension allow the TestCentric GUI to run tests under the .NET 4.6.2 framework.</description>
     <releaseNotes>https://raw.githubusercontent.com/TestCentric/net462-pluggable-agent/master/CHANGES.txt</releaseNotes>
   </metadata>
