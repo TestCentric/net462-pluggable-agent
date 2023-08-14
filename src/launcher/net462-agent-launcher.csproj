@@ -1,28 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   
-  <PropertyGroup>
-    <RootNamespace>TestCentric.Engine</RootNamespace>
-    <TargetFramework>net462</TargetFramework>
-	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	<OutputPath>..\..\bin\$(Configuration)\</OutputPath>
-	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-	<SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\nunit.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<RootNamespace>TestCentric.Engine</RootNamespace>
+		<TargetFramework>net462</TargetFramework>
+		<OutputPath>..\..\bin\$(Configuration)\</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\..\nunit.snk</AssemblyOriginatorKeyFile>
+		<AssemblyTitle>Net60 Pluggable Agent</AssemblyTitle>
+		<Description>Pluggable Agent for running tests under .NET 6.0</Description>
+		<Copyright>Copyright (c) 2023 Charlie Poole</Copyright>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\AssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Runtime.Remoting" />
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="System.Runtime.Remoting" />
+	</ItemGroup>
   
-  <ItemGroup>
-	<PackageReference Include="NUnit.Engine.Api" Version="3.16.2" />
-	<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-beta1" />
-	<PackageReference Include="TestCentric.Engine.Core" Version="2.0.0-beta1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NUnit.Engine.Api" Version="3.16.2" />
+		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-beta1" />
+		<PackageReference Include="TestCentric.Engine.Core" Version="2.0.0-beta1" />
+	</ItemGroup>
   
 </Project>
