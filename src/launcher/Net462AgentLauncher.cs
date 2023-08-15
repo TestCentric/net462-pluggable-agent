@@ -11,10 +11,11 @@ using System.Runtime.Versioning;
 using System.Text;
 using NUnit.Engine;
 using NUnit.Engine.Extensibility;
+using TestCentric.Engine;
 using TestCentric.Engine.Extensibility;
 using TestCentric.Engine.Internal;
 
-namespace TestCentric.Engine.Services
+namespace TestCentric.Agents
 {
     [Extension]
     public class Net462AgentLauncher : IAgentLauncher
@@ -62,7 +63,7 @@ namespace TestCentric.Engine.Services
             if (workDirectory != string.Empty)
                 sb.Append($" --work=").EscapeProcessArgument(workDirectory);
 
-            var agentName = runAsX86 ? "net462-pluggable-agent-x86.exe" : "net462-pluggable-agent.exe";
+            var agentName = runAsX86 ? "net462-agent-x86.exe" : "net462-agent.exe";
             var agentDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "agent");
             var agentPath = Path.Combine(agentDir, agentName);
             var agentArgs = sb.ToString();
