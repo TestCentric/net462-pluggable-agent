@@ -9,14 +9,14 @@ using System.IO;
 using System.Security;
 using TestCentric.Engine.Agents;
 using TestCentric.Engine.Internal;
+#if NETFRAMEWORK
 using TestCentric.Engine.Communication.Transports.Remoting;
+#else
+using TestCentric.Engine.Communication.Transports.Tcp;
+#endif
 
 namespace TestCentric.Agents
 {
-    public class Net462Agent : TestCentricAgent<Net462Agent>
-    {        public static void Main(string[] args) => TestCentricAgent<Net462Agent>.Execute(args);
-    }
-#if false
     public class TestCentricAgent<TAgent>
     {
         static Process AgencyProcess;
@@ -34,8 +34,8 @@ namespace TestCentric.Agents
             var logName = $"testcentric-agent_{_pid}.log";
 
             InternalTrace.Initialize(Path.Combine(options.WorkDirectory, logName), options.TraceLevel);
-            log = InternalTrace.GetLogger(typeof(Net462Agent));
-            log.Info($".NET 4.6.2 Agent process {_pid} starting");
+            log = InternalTrace.GetLogger(typeof(TAgent));
+            log.Info($"{typeof(TAgent).Name} process {_pid} starting");
 
             if (options.DebugAgent || options.DebugTests)
                 TryLaunchDebugger();
@@ -143,5 +143,4 @@ namespace TestCentric.Agents
             }
         }
     }
-#endif
 }
