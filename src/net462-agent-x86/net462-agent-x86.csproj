@@ -8,30 +8,24 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<OutputPath>..\..\bin\$(Configuration)\agent\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<ApplicationIcon>..\testcentric.ico</ApplicationIcon>
+		<ApplicationIcon>..\net462-agent\testcentric.ico</ApplicationIcon>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<PlatformTarget>x86</PlatformTarget>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="..\*.cs" />
+		<Compile Include="..\net462-agent\*.cs" />
+		<None Include="..\net462-agent\app.config" />
+		<None Include="..\net462-agent\testcentric.ico" />
+		<Compile Include="..\net462-agent\TextOutput\ColorConsole.cs" Link="TextOutput\ColorConsole.cs" />
+		<Compile Include="..\net462-agent\TextOutput\ColorConsoleWriter.cs" Link="TextOutput\ColorConsoleWriter.cs" />
+		<Compile Include="..\net462-agent\TextOutput\ColorStyle.cs" Link="TextOutput\ColorStyle.cs" />
+		<Compile Include="..\net462-agent\TextOutput\ExtendedTextWrapper.cs" Link="TextOutput\ExtendedTextWrapper.cs" />
+		<Compile Include="..\net462-agent\TextOutput\ExtendedTextWriter.cs" Link="TextOutput\ExtendedTextWriter.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="..\TextOutput\ColorConsole.cs" Link="TextOutput\ColorConsole.cs" />
-	  <Compile Include="..\TextOutput\ColorConsoleWriter.cs" Link="TextOutput\ColorConsoleWriter.cs" />
-	  <Compile Include="..\TextOutput\ColorStyle.cs" Link="TextOutput\ColorStyle.cs" />
-	  <Compile Include="..\TextOutput\ExtendedTextWrapper.cs" Link="TextOutput\ExtendedTextWrapper.cs" />
-	  <Compile Include="..\TextOutput\ExtendedTextWriter.cs" Link="TextOutput\ExtendedTextWriter.cs" />
-	</ItemGroup>
-	
-	<ItemGroup>
         <Reference Include="System.Runtime.Remoting" />
-	</ItemGroup>
-	
-	<ItemGroup>
-		<Content Include="..\testcentric.ico" />
-		<Content Include="..\app.config" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -43,10 +37,6 @@
 		<None Update="app.config">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="TextOutput\" />
 	</ItemGroup>
   
 </Project>
