@@ -26,13 +26,13 @@ var MockAssemblyResult = new ExpectedResult("Failed")
 var PackageTests = new PackageTest[] {
 	new PackageTest(
 		1, "Net20PackageTest", "Run mock-assembly.dll targeting .NET 2.0",
-		"tests/net20/mock-assembly.dll", MockAssemblyResult),
+		"tests/net20/mock-assembly.dll --trace:Debug", MockAssemblyResult),
 	new PackageTest(
 		1, "Net35PackageTest", "Run mock-assembly.dll targeting .NET 3.5",
-		"tests/net35/mock-assembly.dll", MockAssemblyResult),
+		"tests/net35/mock-assembly.dll --trace:Debug", MockAssemblyResult),
 	new PackageTest(
 		1, "Net462PackageTest", "Run mock-assembly.dll targeting .NET 4.6.2",
-		"tests/net462/mock-assembly.dll", MockAssemblyResult)
+		"tests/net462/mock-assembly.dll --trace:Debug", MockAssemblyResult)
 };
 
 BuildSettings.Packages.Add(new NuGetPackage(
@@ -44,10 +44,10 @@ BuildSettings.Packages.Add(new NuGetPackage(
 		.WithRootFiles("../../LICENSE.txt", "../../README.md", "../../testcentric.png")
 		.WithDirectories(
 			new DirectoryContent("tools").WithFiles(
-				"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "nunit.engine.api.dll", "testcentric.engine.api.dll" ),
+				"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll", "testcentric.engine.core.dll" ),
 			new DirectoryContent("tools/agent").WithFiles(
-				"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/nunit.engine.api.dll",
-				"agent/testcentric.engine.core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll" ) ),
+				"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/testcentric.engine.api.dll",
+				"agent/testcentric.engine.core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll", "agent/testcentric.extensibility.api.dll" ) ),
 	testRunner: new AgentRunner(BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent/tools/agent/net462-agent.exe"),
 	tests: PackageTests) );
 	
@@ -61,10 +61,10 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 			.WithDirectories(
 				new DirectoryContent("tools").WithFiles(
 					"../../LICENSE.txt", "../../README.md", "../../VERIFICATION.txt",
-					"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "nunit.engine.api.dll", "testcentric.engine.api.dll" ),
+					"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll", "testcentric.engine.core.dll" ),
 				new DirectoryContent("tools/agent").WithFiles(
-					"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/nunit.engine.api.dll",
-					"agent/testcentric.engine.core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll" ) ),
+					"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/testcentric.engine.api.dll",
+					"agent/testcentric.engine.core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll", "agent/testcentric.extensibility.api.dll" ) ),
 		testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent/tools/agent/net462-agent.exe"),
 		tests: PackageTests) );
 

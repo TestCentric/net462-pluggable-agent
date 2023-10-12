@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <RootNamespace>TestCentric.Agent</RootNamespace>
@@ -10,20 +11,25 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	    <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
+	
 	<ItemGroup>
         <Reference Include="System.Runtime.Remoting" />
     </ItemGroup>
+	
 	<ItemGroup>
         <ProjectReference Include="..\launcher\net462-agent-launcher.csproj" />
     </ItemGroup>
+	
 	<ItemGroup>
-		<PackageReference Include="NUnit" Version="3.11.0" />
-		<PackageReference Include="NUnitLite" Version="3.11.0" />
-		<PackageReference Include="NUnit.Engine.Api" Version="3.16.2" />
+		<PackageReference Include="NUnit" Version="3.12.0" />
+		<PackageReference Include="NUnitLite" Version="3.12.0" />
+		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-dev00019" />
 	</ItemGroup>
+	
 	<ItemGroup>
         <None Update="app.config">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
+	
 </Project>
