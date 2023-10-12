@@ -8,7 +8,7 @@ using System.Linq;
 using NUnit.Framework;
 using System.IO;
 using System.Diagnostics;
-using NUnit.Engine;
+using TestCentric.Engine;
 
 namespace TestCentric.Agents
 {
