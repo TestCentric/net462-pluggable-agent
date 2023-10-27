@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net462-agent", "src\net462-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net462-agent-x86", "src\net462-agent-x86\net462-agent-x86.csproj", "{D860527E-B2C4-449B-AAFB-BB26051C20CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net462-agent.tests", "src\agent-tests\net462-agent.tests.csproj", "{D686E122-4CEF-431A-BE28-3F9F7403304E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,18 +97,6 @@ Global
 		{D860527E-B2C4-449B-AAFB-BB26051C20CC}.Release|x64.Build.0 = Release|Any CPU
 		{D860527E-B2C4-449B-AAFB-BB26051C20CC}.Release|x86.ActiveCfg = Release|Any CPU
 		{D860527E-B2C4-449B-AAFB-BB26051C20CC}.Release|x86.Build.0 = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|x64.Build.0 = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Debug|x86.Build.0 = Debug|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|x64.ActiveCfg = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|x64.Build.0 = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|x86.ActiveCfg = Release|Any CPU
-		{D686E122-4CEF-431A-BE28-3F9F7403304E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

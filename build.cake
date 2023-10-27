@@ -1,5 +1,5 @@
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00055
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00058
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -44,7 +44,7 @@ BuildSettings.Packages.Add(new NuGetPackage(
 				"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
 			new DirectoryContent("tools/agent").WithFiles(
 				"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config",
-				"agent/testcentric.engine.api.dll", "agent/testcentric.engine.core.dll",
+				"agent/testcentric.engine.api.dll", "agent/testcentric.engine.core.dll", "agent/TestCentric.Agent.Core.dll",
 				"agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll",
 				"agent/testcentric.extensibility.api.dll", "agent/TestCentric.InternalTrace.dll" ) ),
 	testRunner: new AgentRunner(BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent/tools/agent/net462-agent.exe"),
@@ -60,10 +60,10 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 			.WithDirectories(
 				new DirectoryContent("tools").WithFiles(
 					"../../LICENSE.txt", "../../README.md", "../../VERIFICATION.txt",
-					"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll", "testcentric.engine.core.dll" ),
+					"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
 				new DirectoryContent("tools/agent").WithFiles(
 					"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/testcentric.engine.api.dll", "agent/TestCentric.InternalTrace.dll",
-					"agent/testcentric.engine.core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll", "agent/testcentric.extensibility.api.dll" ) ),
+					"agent/testcentric.engine.core.dll", "agent/TestCentric.Agent.Core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll", "agent/testcentric.extensibility.api.dll" ) ),
 		testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent/tools/agent/net462-agent.exe"),
 		tests: PackageTests) );
 
