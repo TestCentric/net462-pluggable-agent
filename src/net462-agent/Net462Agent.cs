@@ -7,6 +7,6 @@ namespace TestCentric.Agents
 {
     public class Net462Agent : TestCentricAgent<Net462Agent>
     {
-        public static void Main(string[] args) => TestCentricAgent<Net462Agent>.Execute(args);
+        public static void Main(string[] args) => Execute(args);
     }
 }
