@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  
+	<metadata>
+        <id>testcentric-extension-net462-pluggable-agent</id>
+        <version>0.0.0</version>
+        <title>.NET 4.6.2 Pluggable Agent</title>
+        <authors>Charlie Poole</authors>
+        <owners>Charlie Poole</owners>
+        <licenseUrl>https://raw.githubusercontent.com/TestCentric/net462-pluggable-agent/main/LICENSE.txt</licenseUrl>
+        <projectUrl>https://test-centric.org</projectUrl>
+        <iconUrl>https://test-centric.org/assets/img/testcentric_128x128.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>TestCentric engine extension for running tests under .NET 4.6.2</description>
+        <summary>TestCentric engine extension for running tests under .NET 4.6.2</summary>
+        <copyright>Copyright (c) 2021-2023 Charlie Poole</copyright>
+        <tags>testcentric pluggable agent net462</tags>
+        <projectSourceUrl>https://github.com/TestCentric/net462-pluggable-agent</projectSourceUrl>
+        <packageSourceUrl>https://github.com/TestCentric/net462-pluggable-agent</packageSourceUrl>
+        <docsUrl>https://test-centric.org</docsUrl>
+        <mailingListUrl>https://groups.google.com/forum/#!forum/nunit-discuss</mailingListUrl>
+        <bugTrackerUrl>https://github.com/TestCentric/net462-pluggable-agent/issues</bugTrackerUrl>
+    </metadata>
+
+	<files>
+		<file src="../testcentric.png" />
+
+		<file src="../LICENSE.txt" target="tools" />
+		<file src="../README.md" target="tools" />
+		<file src="../VERIFICATION.txt" target="tools" />
+		<file src="../bin/Release/net462-agent-launcher.dll" target="tools" />
+		<file src="../bin/Release/net462-agent-launcher.pdb" target="tools" />
+		<file src="../bin/Release/TestCentric.Engine.Api.dll" target="tools" />
+		<file src="../bin/Release/TestCentric.Extensibility.Api.dll" target="tools" />
+
+		<file src="../bin/Release/agent/net462-agent.exe" target="tools/agent" />
+		<file src="../bin/Release/agent/net462-agent.pdb" target="tools/agent" />
+		<file src="../bin/Release/agent/net462-agent.exe.config" target="tools/agent" />
+		<file src="../bin/Release/agent/testcentric.engine.api.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/testcentric.engine.core.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/TestCentric.Agent.Core.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/testcentric.engine.metadata.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/testcentric.extensibility.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/testcentric.extensibility.api.dll" target="tools/agent" />
+		<file src="../bin/Release/agent/TestCentric.InternalTrace.dll" target="tools/agent" />
+	</files>
+	
+</package>
