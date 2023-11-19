@@ -28,6 +28,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net462-agent", "src\net462-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net462-agent-x86", "src\net462-agent-x86\net462-agent-x86.csproj", "{D860527E-B2C4-449B-AAFB-BB26051C20CC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{B6516F48-F091-4BB4-A76E-F9C501EF1059}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\TestCentric.Extension.Net462PluggableAgent.nuspec = nuget\TestCentric.Extension.Net462PluggableAgent.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "choco", "choco", "{DB1D27AE-4967-466A-88CF-2213452FBE5D}"
+	ProjectSection(SolutionItems) = preProject
+		choco\testcentric-extension-net462-pluggable-agent.nuspec = choco\testcentric-extension-net462-pluggable-agent.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +111,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B6516F48-F091-4BB4-A76E-F9C501EF1059} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
+		{DB1D27AE-4967-466A-88CF-2213452FBE5D} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAB7BD1E-1034-47CD-AA8E-FD4AC034193B}

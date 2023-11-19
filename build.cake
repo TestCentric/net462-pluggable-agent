@@ -37,17 +37,18 @@ BuildSettings.Packages.Add(new NuGetPackage(
 	title: ".NET 4.6.2 Pluggable Agent",
 	description: "TestCentric engine extension for running tests under .NET 4.6.2",
 	tags: new [] { "testcentric", "pluggable", "agent", "net462" },
-	packageContent: new PackageContent()
-		.WithRootFiles("../../LICENSE.txt", "../../README.md", "../../testcentric.png")
-		.WithDirectories(
-			new DirectoryContent("tools").WithFiles(
-				"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
-				"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
-			new DirectoryContent("tools/agent").WithFiles(
-				"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config",
-				"agent/testcentric.engine.api.dll", "agent/testcentric.engine.core.dll", "agent/TestCentric.Agent.Core.dll",				
-				"agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll",
-				"agent/testcentric.extensibility.api.dll", "agent/TestCentric.InternalTrace.dll" ) ),
+	source: "nuget/TestCentric.Extension.Net462PluggableAgent.nuspec",
+	checks: new PackageCheck[] {
+		HasFiles("LICENSE.txt", "README.md", "testcentric.png"),
+		HasDirectory("tools").WithFiles(
+			"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
+			"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),	
+		HasDirectory("tools/agent").WithFiles(
+			"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
+			"testcentric.engine.api.dll", "testcentric.engine.core.dll", "TestCentric.Agent.Core.dll",				
+			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll",
+			"testcentric.extensibility.api.dll", "TestCentric.InternalTrace.dll")
+	},
 	testRunner: new AgentRunner(BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe"),
 	tests: PackageTests) );
 	
@@ -56,15 +57,16 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 		title: ".NET 4.6.2 Pluggable Agent",
 		description: "TestCentric engine extension for running tests under .NET 4.6.2",
 		tags: new [] { "testcentric", "pluggable", "agent", "net462" },
-		packageContent: new PackageContent()
-			.WithRootFiles("../../testcentric.png")
-			.WithDirectories(
-				new DirectoryContent("tools").WithFiles(
-					"../../LICENSE.txt", "../../README.md", "../../VERIFICATION.txt",
-					"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
-				new DirectoryContent("tools/agent").WithFiles(
-					"agent/net462-agent.exe", "agent/net462-agent.pdb", "agent/net462-agent.exe.config", "agent/testcentric.engine.api.dll", "agent/TestCentric.InternalTrace.dll",
-					"agent/testcentric.engine.core.dll", "agent/TestCentric.Agent.Core.dll", "agent/testcentric.engine.metadata.dll", "agent/testcentric.extensibility.dll", "agent/testcentric.extensibility.api.dll" ) ),
+		source: "choco/testcentric-extension-net462-pluggable-agent.nuspec",
+		checks: new PackageCheck[] {
+			HasFile("testcentric.png"),
+			HasDirectory("tools").WithFiles(
+				"LICENSE.txt", "README.md", "VERIFICATION.txt",
+				"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
+			HasDirectory("tools/agent").WithFiles(
+				"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config", "testcentric.engine.api.dll", "TestCentric.InternalTrace.dll",
+				"testcentric.engine.core.dll", "TestCentric.Agent.Core.dll", "testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll" )
+		},
 		testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe"),
 		tests: PackageTests) );
 
