@@ -45,7 +45,7 @@ BuildSettings.Packages.Add(new NuGetPackage(
 			"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),	
 		HasDirectory("tools/agent").WithFiles(
 			"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
-			"testcentric.engine.api.dll", "testcentric.engine.core.dll", "TestCentric.Agent.Core.dll",				
+			"testcentric.engine.api.dll", "TestCentric.Agent.Core.dll",				
 			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll",
 			"testcentric.extensibility.api.dll", "TestCentric.InternalTrace.dll")
 	},
@@ -62,10 +62,13 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 			HasFile("testcentric.png"),
 			HasDirectory("tools").WithFiles(
 				"LICENSE.txt", "README.md", "VERIFICATION.txt",
-				"net462-agent-launcher.dll", "net462-agent-launcher.pdb", "testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
+				"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
+				"testcentric.extensibility.api.dll", "testcentric.engine.api.dll" ),
 			HasDirectory("tools/agent").WithFiles(
-				"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config", "testcentric.engine.api.dll", "TestCentric.InternalTrace.dll",
-				"testcentric.engine.core.dll", "TestCentric.Agent.Core.dll", "testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll" )
+				"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
+				"testcentric.engine.api.dll", "TestCentric.Agent.Core.dll",
+				"testcentric.engine.metadata.dll", "testcentric.extensibility.dll",
+				"testcentric.extensibility.api.dll", "TestCentric.InternalTrace.dll" )
 		},
 		testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe"),
 		tests: PackageTests) );
