@@ -32,11 +32,11 @@
 		<file src="agent/net462-agent.exe" target="tools/agent" />
 		<file src="agent/net462-agent.pdb" target="tools/agent" />
 		<file src="agent/net462-agent.exe.config" target="tools/agent" />
-		<file src="agent/testcentric.engine.api.dll" target="tools/agent" />
+		<file src="agent/TestCentric.Engine.api.dll" target="tools/agent" />
 		<file src="agent/TestCentric.Agent.Core.dll" target="tools/agent" />
-		<file src="agent/testcentric.engine.metadata.dll" target="tools/agent" />
-		<file src="agent/testcentric.extensibility.dll" target="tools/agent" />
-		<file src="agent/testcentric.extensibility.api.dll" target="tools/agent" />
+		<file src="agent/TestCentric.Metadata.dll" target="tools/agent" />
+		<file src="agent/TestCentric.Extensibility.dll" target="tools/agent" />
+		<file src="agent/TestCentric.Extensibility.Api.dll" target="tools/agent" />
 		<file src="agent/TestCentric.InternalTrace.dll" target="tools/agent" />
 	</files>
 	
