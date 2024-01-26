@@ -1,5 +1,5 @@
 // Load the recipe
-#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00067
+#load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00079
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
@@ -19,6 +19,11 @@ var MockAssemblyResult = new ExpectedResult("Failed")
 	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly.dll") }
 };
 
+var MockAssemblyX86Result = new ExpectedResult("Failed")
+{
+	Total = 36, Passed = 23, Failed = 5, Warnings = 1, Inconclusive = 1, Skipped = 7,
+	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly-x86.dll") }
+};
 
 var PackageTests = new PackageTest[] {
 	new PackageTest(
@@ -29,7 +34,16 @@ var PackageTests = new PackageTest[] {
 		"tests/net35/mock-assembly.dll --trace:Debug", MockAssemblyResult),
 	new PackageTest(
 		1, "Net462PackageTest", "Run mock-assembly.dll targeting .NET 4.6.2",
-		"tests/net462/mock-assembly.dll --trace:Debug", MockAssemblyResult)
+		"tests/net462/mock-assembly.dll --trace:Debug", MockAssemblyResult),
+	new PackageTest(
+		1, "Net20X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 2.0",
+		"tests/net20/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result),
+	new PackageTest(
+		1, "Net35X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 3.5",
+		"tests/net35/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result),
+	new PackageTest(
+		1, "Net462X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 4.6.2",
+		"tests/net462/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result)
 };
 
 BuildSettings.Packages.Add(new NuGetPackage(
@@ -45,11 +59,14 @@ BuildSettings.Packages.Add(new NuGetPackage(
 			"testcentric.extensibility.api.dll", "TestCentric.Engine.Api.dll" ),	
 		HasDirectory("tools/agent").WithFiles(
 			"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
+			"net462-agent-x86.exe", "net462-agent-x86.pdb", "net462-agent-x86.exe.config",
 			"TestCentric.Engine.Api.dll", "TestCentric.Agent.Core.dll",				
 			"TestCentric.Metadata.dll", "TestCentric.Extensibility.dll",
 			"TestCentric.Extensibility.Api.dll", "TestCentric.InternalTrace.dll")
 	},
-	testRunner: new AgentRunner(BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe"),
+	testRunner: new AgentRunner(
+      BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe",
+      BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent-x86.exe"),
 	tests: PackageTests) );
 	
 BuildSettings.Packages.Add(new ChocolateyPackage(
@@ -70,7 +87,9 @@ BuildSettings.Packages.Add(new ChocolateyPackage(
 				"TestCentric.Metadata.dll", "Testcentric.Extensibility.dll",
 				"TestCentric.Extensibility.Api.dll", "TestCentric.InternalTrace.dll" )
 		},
-		testRunner: new AgentRunner(BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe"),
+		testRunner: new AgentRunner(
+          BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe",
+          BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent-x86.exe"),
 		tests: PackageTests) );
 
 //////////////////////////////////////////////////////////////////////
@@ -92,4 +111,4 @@ Task("Default")
 // EXECUTION
 //////////////////////////////////////////////////////////////////////
 
-RunTarget(CommandLineOptions.Target);
+RunTarget(CommandLineOptions.Target.Value);
