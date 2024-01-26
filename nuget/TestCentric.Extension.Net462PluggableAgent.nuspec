@@ -32,6 +32,9 @@
 		<file src="agent/net462-agent.exe" target="tools/agent" />
 		<file src="agent/net462-agent.pdb" target="tools/agent" />
 		<file src="agent/net462-agent.exe.config" target="tools/agent" />
+		<file src="agent/net462-agent-x86.exe" target="tools/agent" />
+		<file src="agent/net462-agent-x86.pdb" target="tools/agent" />
+		<file src="agent/net462-agent-x86.exe.config" target="tools/agent" />
 		<file src="agent/TestCentric.Engine.api.dll" target="tools/agent" />
 		<file src="agent/TestCentric.Agent.Core.dll" target="tools/agent" />
 		<file src="agent/TestCentric.Metadata.dll" target="tools/agent" />
