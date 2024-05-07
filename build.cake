@@ -13,37 +13,49 @@ BuildSettings.Initialize
 	nugetVerbosity: NuGetVerbosity.Detailed
 );
 
-var MockAssemblyResult = new ExpectedResult("Failed")
+var MockAssemblyResult1 = new ExpectedResult("Failed")
 {
 	Total = 36, Passed = 23, Failed = 5, Warnings = 1, Inconclusive = 1, Skipped = 7,
 	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly.dll") }
 };
 
-var MockAssemblyX86Result = new ExpectedResult("Failed")
+var MockAssemblyX86Result1 = new ExpectedResult("Failed")
 {
 	Total = 36, Passed = 23, Failed = 5, Warnings = 1, Inconclusive = 1, Skipped = 7,
+	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly-x86.dll") }
+};
+
+var MockAssemblyResult2 = new ExpectedResult("Failed")
+{
+	Total = 37, Passed = 23, Failed = 5, Warnings = 1, Inconclusive = 1, Skipped = 7,
+	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly.dll") }
+};
+
+var MockAssemblyX86Result2 = new ExpectedResult("Failed")
+{
+	Total = 37, Passed = 23, Failed = 5, Warnings = 1, Inconclusive = 1, Skipped = 7,
 	Assemblies = new ExpectedAssemblyResult[] { new ExpectedAssemblyResult("mock-assembly-x86.dll") }
 };
 
 var PackageTests = new PackageTest[] {
 	new PackageTest(
 		1, "Net20PackageTest", "Run mock-assembly.dll targeting .NET 2.0",
-		"tests/net20/mock-assembly.dll --trace:Debug", MockAssemblyResult),
+		"tests/net20/mock-assembly.dll --trace:Debug", MockAssemblyResult1),
 	new PackageTest(
 		1, "Net35PackageTest", "Run mock-assembly.dll targeting .NET 3.5",
-		"tests/net35/mock-assembly.dll --trace:Debug", MockAssemblyResult),
+		"tests/net35/mock-assembly.dll --trace:Debug", MockAssemblyResult2),
 	new PackageTest(
 		1, "Net462PackageTest", "Run mock-assembly.dll targeting .NET 4.6.2",
-		"tests/net462/mock-assembly.dll --trace:Debug", MockAssemblyResult),
+		"tests/net462/mock-assembly.dll --trace:Debug", MockAssemblyResult2),
 	new PackageTest(
 		1, "Net20X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 2.0",
-		"tests/net20/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result),
+		"tests/net20/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result1),
 	new PackageTest(
 		1, "Net35X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 3.5",
-		"tests/net35/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result),
+		"tests/net35/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result2),
 	new PackageTest(
 		1, "Net462X86PackageTest", "Run mock-assembly-x86.dll targeting .NET 4.6.2",
-		"tests/net462/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result)
+		"tests/net462/mock-assembly-x86.dll --x86 --trace:Debug", MockAssemblyX86Result2)
 };
 
 BuildSettings.Packages.Add(new NuGetPackage(
