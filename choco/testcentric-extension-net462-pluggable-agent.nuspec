@@ -4,7 +4,7 @@
 	<metadata>
         <id>testcentric-extension-net462-pluggable-agent</id>
         <version>0.0.0</version>
-        <title>.NET 4.6.2 Pluggable Agent</title>
+        <title>TestCentric Extension - .NET 4.6.2 Pluggable Agent</title>
         <authors>Charlie Poole</authors>
         <owners>Charlie Poole</owners>
         <licenseUrl>https://raw.githubusercontent.com/TestCentric/net462-pluggable-agent/main/LICENSE.txt</licenseUrl>
