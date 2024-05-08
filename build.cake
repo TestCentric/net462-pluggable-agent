@@ -83,7 +83,7 @@ BuildSettings.Packages.Add(new NuGetPackage(
 	
 BuildSettings.Packages.Add(new ChocolateyPackage(
 		"testcentric-extension-net462-pluggable-agent",
-		title: ".NET 4.6.2 Pluggable Agent",
+		title: "TestCentric Extension - .NET 4.6.2 Pluggable Agent",
 		description: "TestCentric engine extension for running tests under .NET 4.6.2",
 		tags: new [] { "testcentric", "pluggable", "agent", "net462" },
 		source: "choco/testcentric-extension-net462-pluggable-agent.nuspec",
