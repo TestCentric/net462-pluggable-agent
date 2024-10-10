@@ -40,6 +40,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "choco", "choco", "{DB1D27AE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mock-assembly-x86", "src\mock-assembly-x86\mock-assembly-x86.csproj", "{8ED7E1A4-8059-4159-B378-52E5C8B7F874}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{52F11D26-D2A8-48AC-97C9-D4C8087AC39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{96585370-2B84-40FA-8C14-C605FD93B571}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\net462-pluggable-agent-ci.yml = .github\workflows\net462-pluggable-agent-ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +136,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B6516F48-F091-4BB4-A76E-F9C501EF1059} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
 		{DB1D27AE-4967-466A-88CF-2213452FBE5D} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
+		{52F11D26-D2A8-48AC-97C9-D4C8087AC39B} = {49BC1DFB-828F-49F4-B2B4-752AB470481D}
+		{96585370-2B84-40FA-8C14-C605FD93B571} = {52F11D26-D2A8-48AC-97C9-D4C8087AC39B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAB7BD1E-1034-47CD-AA8E-FD4AC034193B}
