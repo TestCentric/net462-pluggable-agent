@@ -8,6 +8,7 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<OutputPath>..\..\bin\$(Configuration)\agent\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>testcentric-net462-agent-x86</AssemblyName>
 		<ApplicationIcon>..\net462-agent\testcentric.ico</ApplicationIcon>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<PlatformTarget>x86</PlatformTarget>

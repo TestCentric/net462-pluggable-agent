@@ -17,8 +17,8 @@ namespace TestCentric.Agents
         private static readonly Guid AGENTID = Guid.NewGuid();
         private const string AGENT_URL = "tcp://127.0.0.1:1234/TestAgency";
         private static readonly string REQUIRED_ARGS = $"{AGENT_URL} --pid={Process.GetCurrentProcess().Id}";
-        private const string AGENT_NAME = "net462-agent.exe";
-        private const string AGENT_NAME_X86 = "net462-agent-x86.exe";
+        private const string AGENT_ASSEMBLY_NAME = "testcentric-net462-agent.exe";
+        private const string X86_AGENT_ASSEMBLY_NAME = "testcentric-net462-agent-x86.exe";
         private static string AGENT_DIR = Path.Combine(TestContext.CurrentContext.TestDirectory, "agent");
 
         // Constants used for settings
@@ -34,7 +34,7 @@ namespace TestCentric.Agents
         {
             "net-2.0", "net-3.0", "net-3.5", "net-4.0", "net-4.5", "net-4.6.2",
             "netcore-1.1", "netcore-2.1", "netcore-3.1", "netcore-5.0",
-            "netcore-6.0", "netcore-7.0", "netcore-8.0"
+            "netcore-6.0", "netcore-7.0", "netcore-8.0", "netcore-9.0"
         };
 
         private static readonly string[] SUPPORTED = new string[]
@@ -92,7 +92,7 @@ namespace TestCentric.Agents
 
         private void CheckAgentPath(Process process, bool x86)
         {
-            string agentPath = Path.Combine(AGENT_DIR, x86 ? AGENT_NAME_X86 : AGENT_NAME);
+            string agentPath = Path.Combine(AGENT_DIR, x86 ? X86_AGENT_ASSEMBLY_NAME : AGENT_ASSEMBLY_NAME);
             Assert.That(process.StartInfo.FileName, Is.SamePath(agentPath));
         }
 

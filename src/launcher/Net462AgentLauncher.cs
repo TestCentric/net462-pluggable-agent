@@ -22,6 +22,8 @@ namespace TestCentric.Agents
         // TODO: use logging once it is in a separate assembly
         //static Logger log = InternalTrace.GetLogger(typeof(Net462AgentLauncher));
 
+        private const string AGENT_ASSEMBLY_NAME = "testcentric-net462-agent";
+        private const string X86_AGENT_ASSEMBLY_NAME = "testcentric-net462-agent-x86";
         private const string RUNTIME_IDENTIFIER = ".NETFramework";
         private static readonly Version RUNTIME_VERSION = new Version(4, 6, 2);
         private static readonly FrameworkName TARGET_FRAMEWORK = new FrameworkName(RUNTIME_IDENTIFIER, RUNTIME_VERSION);
@@ -63,7 +65,7 @@ namespace TestCentric.Agents
             if (workDirectory != string.Empty)
                 sb.Append($" --work=").EscapeProcessArgument(workDirectory);
 
-            var agentName = runAsX86 ? "net462-agent-x86.exe" : "net462-agent.exe";
+            var agentName = runAsX86 ? $"{X86_AGENT_ASSEMBLY_NAME}.exe" : $"{AGENT_ASSEMBLY_NAME}.exe";
             var agentDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "agent");
             var agentPath = Path.Combine(agentDir, agentName);
             var agentArgs = sb.ToString();

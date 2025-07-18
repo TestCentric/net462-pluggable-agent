@@ -7,6 +7,7 @@
 		<GenerateSupportedRuntime>false</GenerateSupportedRuntime>
 		<OutputPath>..\..\bin\$(Configuration)\agent\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>testcentric-net462-agent</AssemblyName>	
 		<ApplicationIcon>testcentric.ico</ApplicationIcon>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<PlatformTarget>AnyCPU</PlatformTarget>
@@ -16,7 +17,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<EngineCoreVersion>2.0.0-dev00025</EngineCoreVersion>	
+		<EngineCoreVersion>2.0.0-dev00025</EngineCoreVersion>
 	</PropertyGroup>
 	
 	<ItemGroup>
