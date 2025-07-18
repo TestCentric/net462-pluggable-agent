@@ -3,6 +3,9 @@
 // Comment out above line and uncomment below for local tests of recipe changes
 //#load ../TestCentric.Cake.Recipe/recipe/*.cake
 
+const string AGENT_NAME = "testcentric-net462-agent";
+const string X86_AGENT_NAME = "testcentric-net462-agent-x86";
+
 BuildSettings.Initialize
 (
 	context: Context,
@@ -70,39 +73,40 @@ BuildSettings.Packages.Add(new NuGetPackage(
 			"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
 			"testcentric.extensibility.api.dll", "TestCentric.Engine.Api.dll" ),	
 		HasDirectory("tools/agent").WithFiles(
-			"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
-			"net462-agent-x86.exe", "net462-agent-x86.pdb", "net462-agent-x86.exe.config",
+            $"{AGENT_NAME}.exe", $"{AGENT_NAME}.pdb", $"{AGENT_NAME}.exe.config",
+            $"{X86_AGENT_NAME}.exe", $"{X86_AGENT_NAME}.pdb", $"{X86_AGENT_NAME}.exe.config",
 			"TestCentric.Engine.Api.dll", "TestCentric.Agent.Core.dll",				
 			"TestCentric.Metadata.dll", "TestCentric.Extensibility.dll",
 			"TestCentric.Extensibility.Api.dll", "TestCentric.InternalTrace.dll")
 	},
 	testRunner: new AgentRunner(
-      BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe",
-      BuildSettings.NuGetTestDirectory + "TestCentric.Extension.Net462PluggableAgent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent-x86.exe"),
+      BuildSettings.NuGetTestDirectory + $"TestCentric.Extension.Net462PluggableAgent.{BuildSettings.PackageVersion}/tools/agent/{AGENT_NAME}.exe",
+      BuildSettings.NuGetTestDirectory + $"TestCentric.Extension.Net462PluggableAgent.{BuildSettings.PackageVersion}/tools/agent/{X86_AGENT_NAME}.exe"),
 	tests: PackageTests) );
 	
 BuildSettings.Packages.Add(new ChocolateyPackage(
-		"testcentric-extension-net462-pluggable-agent",
-		title: "TestCentric Extension - .NET 4.6.2 Pluggable Agent",
-		description: "TestCentric engine extension for running tests under .NET 4.6.2",
-		tags: new [] { "testcentric", "pluggable", "agent", "net462" },
-		source: "choco/testcentric-extension-net462-pluggable-agent.nuspec",
-		checks: new PackageCheck[] {
-			HasFile("testcentric.png"),
-			HasDirectory("tools").WithFiles(
-				"LICENSE.txt", "README.md", "VERIFICATION.txt",
-				"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
-				"TestCentric.Extensibility.Api.dll", "TestCentric.Engine.Api.dll" ),
-			HasDirectory("tools/agent").WithFiles(
-				"net462-agent.exe", "net462-agent.pdb", "net462-agent.exe.config",
-				"TestCentric.Engine.Api.dll", "TestCentric.Agent.Core.dll",
-				"TestCentric.Metadata.dll", "Testcentric.Extensibility.dll",
-				"TestCentric.Extensibility.Api.dll", "TestCentric.InternalTrace.dll" )
-		},
-		testRunner: new AgentRunner(
-          BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent.exe",
-          BuildSettings.ChocolateyTestDirectory + "testcentric-extension-net462-pluggable-agent." + BuildSettings.PackageVersion + "/tools/agent/net462-agent-x86.exe"),
-		tests: PackageTests) );
+	"testcentric-extension-net462-pluggable-agent",
+	title: "TestCentric Extension - .NET 4.6.2 Pluggable Agent",
+	description: "TestCentric engine extension for running tests under .NET 4.6.2",
+	tags: new [] { "testcentric", "pluggable", "agent", "net462" },
+	source: "choco/testcentric-extension-net462-pluggable-agent.nuspec",
+	checks: new PackageCheck[] {
+		HasFile("testcentric.png"),
+		HasDirectory("tools").WithFiles(
+			"LICENSE.txt", "README.md", "VERIFICATION.txt",
+			"net462-agent-launcher.dll", "net462-agent-launcher.pdb",
+			"TestCentric.Extensibility.Api.dll", "TestCentric.Engine.Api.dll" ),
+		HasDirectory("tools/agent").WithFiles(
+            $"{AGENT_NAME}.exe", $"{AGENT_NAME}.pdb", $"{AGENT_NAME}.exe.config",
+			$"{X86_AGENT_NAME}.exe", $"{X86_AGENT_NAME}.pdb", $"{X86_AGENT_NAME}.exe.config",
+            "TestCentric.Engine.Api.dll", "TestCentric.Agent.Core.dll",
+			"TestCentric.Metadata.dll", "Testcentric.Extensibility.dll",
+			"TestCentric.Extensibility.Api.dll", "TestCentric.InternalTrace.dll" )
+	},
+	testRunner: new AgentRunner(
+        $"{BuildSettings.ChocolateyTestDirectory}testcentric-extension-net462-pluggable-agent.{BuildSettings.PackageVersion}/tools/agent/{AGENT_NAME}.exe",
+        $"{BuildSettings.ChocolateyTestDirectory}testcentric-extension-net462-pluggable-agent.{BuildSettings.PackageVersion}/tools/agent/{X86_AGENT_NAME}.exe"),
+	tests: PackageTests) );
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
