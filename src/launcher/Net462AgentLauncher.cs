@@ -36,7 +36,7 @@ namespace TestCentric.Agents
         public bool CanCreateProcess(TestPackage package)
         {
             // Get target runtime
-            string runtimeSetting = package.GetSetting("TargetRuntimeFramework", "");
+            string runtimeSetting = package.Settings.GetValueOrDefault(SettingDefinitions.TargetRuntimeFramework);
             return runtimeSetting.Length > 4 && runtimeSetting.StartsWith("net-") && runtimeSetting[4] <= '4';
         }
 
@@ -47,12 +47,12 @@ namespace TestCentric.Agents
                 return null;
 
             // Access other package settings
-            bool runAsX86 = package.GetSetting("RunAsX86", false);
-            bool debugTests = package.GetSetting("DebugTests", false);
-            bool debugAgent = package.GetSetting("DebugAgent", false);
-            string traceLevel = package.GetSetting("InternalTraceLevel", "Off");
-            bool loadUserProfile = package.GetSetting("LoadUserProfile", false);
-            string workDirectory = package.GetSetting("WorkDirectory", string.Empty);
+            bool runAsX86 = package.Settings.GetValueOrDefault(SettingDefinitions.RunAsX86);
+            bool debugTests = package.Settings.GetValueOrDefault(SettingDefinitions.DebugTests);
+            bool debugAgent = package.Settings.GetValueOrDefault(SettingDefinitions.DebugAgent);
+            string traceLevel = package.Settings.GetValueOrDefault(SettingDefinitions.InternalTraceLevel);
+            bool loadUserProfile = package.Settings.GetValueOrDefault(SettingDefinitions.LoadUserProfile);
+            string workDirectory = package.Settings.GetValueOrDefault(SettingDefinitions.WorkDirectory);
 
             var sb = new StringBuilder($"--agentId={agentId} --agencyUrl={agencyUrl} --pid={Process.GetCurrentProcess().Id}");
 
