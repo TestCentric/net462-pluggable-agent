@@ -2,34 +2,26 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<RootNamespace>TestCentric.agent</RootNamespace>
+		<RootNamespace>TestCentric.Agents</RootNamespace>
 		<TargetFrameworks>net462</TargetFrameworks>
-		<GenerateSupportedRuntime>false</GenerateSupportedRuntime>
 		<OutputPath>..\..\bin\$(Configuration)\agent\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>testcentric-net462-agent</AssemblyName>	
 		<ApplicationIcon>testcentric.ico</ApplicationIcon>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<PlatformTarget>AnyCPU</PlatformTarget>
 		<AssemblyTitle>Net462 Pluggable Agent</AssemblyTitle>
 		<Description>Pluggable Agent for running tests under .NET 4.6.2</Description>
-		<Copyright>Copyright (c) 2021-2023 Charlie Poole</Copyright>
 	</PropertyGroup>
 
-	<PropertyGroup>
-		<EngineCoreVersion>2.0.0-dev00025</EngineCoreVersion>
-	</PropertyGroup>
-	
 	<ItemGroup>
 		<Reference Include="System.Runtime.Remoting" />
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="TestCentric.Agent.Core" Version="2.2.0-dev00013" />
-		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-dev01657" />
-		<PackageReference Include="TestCentric.Extensibility" Version="4.0.0-dev00004" />
-		<PackageReference Include="TestCentric.Metadata" Version="3.0.4" />
-		<PackageReference Include="TestCentric.InternalTrace" Version="1.2.1" />
+		<PackageReference Include="TestCentric.Agent.Core" Version="$(AgentCoreVersion)" />
+		<PackageReference Include="TestCentric.Engine.Api" Version="$(EngineVersion)" />
+		<PackageReference Include="TestCentric.Extensibility" Version="$(ExtensibilityVersion)" />
+		<PackageReference Include="TestCentric.Metadata" Version="$(MetadataVersion)" />
+		<PackageReference Include="TestCentric.InternalTrace" Version="$(InternalTraceVersion)" />
 	</ItemGroup>
 
 </Project>
