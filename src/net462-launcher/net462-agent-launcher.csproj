@@ -5,12 +5,8 @@
 		<TargetFramework>net462</TargetFramework>
 		<OutputPath>..\..\bin\$(Configuration)\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<SignAssembly>true</SignAssembly>
-		<AssemblyOriginatorKeyFile>..\..\testcentric.snk</AssemblyOriginatorKeyFile>
 		<AssemblyTitle>Net60 Pluggable Agent</AssemblyTitle>
 		<Description>Pluggable Agent for running tests under .NET 6.0</Description>
-		<Copyright>Copyright (c) 2023 Charlie Poole</Copyright>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,8 +14,8 @@
 	</ItemGroup>
   
 	<ItemGroup>
-		<PackageReference Include="TestCentric.Extensibility.Api" Version="4.0.0-dev00004" />
-		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-dev01657" />
+		<PackageReference Include="TestCentric.Engine.Api" Version="$(EngineVersion)" />
+		<PackageReference Include="TestCentric.Extensibility.Api" Version="$(ExtensibilityVersion)" />
 	</ItemGroup>
   
 </Project>
