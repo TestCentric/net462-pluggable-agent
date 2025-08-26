@@ -17,6 +17,8 @@ using TestCentric.Engine.Internal;
 namespace TestCentric.Agents
 {
     [Extension(Description ="Pluggable agent running tests under .NET 4.6.2", EngineVersion = "2.0.0")]
+    [ExtensionProperty("AgentType", "LocalProcess")]
+    [ExtensionProperty("TargetFramework", ".NETFramework,Version=4.6.2")]
     public class Net462AgentLauncher : IAgentLauncher
     {
         // TODO: use logging once it is in a separate assembly

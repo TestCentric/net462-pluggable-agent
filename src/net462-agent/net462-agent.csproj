@@ -13,10 +13,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Reference Include="System.Runtime.Remoting" />
-	</ItemGroup>
-	
-	<ItemGroup>
 		<PackageReference Include="TestCentric.Agent.Core" Version="$(AgentCoreVersion)" />
 		<PackageReference Include="TestCentric.Engine.Api" Version="$(EngineVersion)" />
 		<PackageReference Include="TestCentric.Extensibility" Version="$(ExtensibilityVersion)" />
