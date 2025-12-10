@@ -1,3 +1,5 @@
+## ARCHIVED - Use the NUnit NET 4.6.2 Pluggable Agent instead.
+
 # NET 4.6.2 Pluggable Agent
 
 A **pluggable agent** for the TestCentric Gui Runner, capable of running tests under .NET 4.6.2 or
